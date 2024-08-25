@@ -37,6 +37,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log('User disconnected:', socket.id);
+        io.emit("diss",socket.id);
 
         // If the waiting user disconnects, reset the waiting user
         if (waitingUser === socket) {
